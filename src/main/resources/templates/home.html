@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="layout/masterLayout :: layout(~{::main})"  xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/save-customer}" class="btn btn-success my-3">NewCustomer</a>
+            <div class="card">
+                <div class="card-header">
+                    <div class="h3">Customers Tables</div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>DateOfBirth</th>
+                        <th>CashierName</th>
+                        <th>OrderNo</th>
+                        <th>QTy</th>
+                        <th>ItemName</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tobody>
+                        <tr th:each="cus :${customers}">
+                            <td th:text="${cus.id}"></td>
+                            <td th:text="${cus.dateOfBirth}"></td>
+                            <td th:text="${cus.cashierName}"></td>
+                            <td th:text="${cus.orderNo}"></td>
+                            <td th:text="${cus.QTy}"></td>
+                            <td th:text="${cus.itemName}"></td>
+                            <td th:text="${cus.rate}"></td>
+                            <td th:text="${cus.amount}"></td>
+
+                            <td><a class="btn btn-outline-danger"
+                                   th:href="@{'/customer/delete?id='+${cus.id}}">Delete</a></td>
+                            <td><a  class="btn btn-outline-success"
+                                    th:href="@{'/customer/update/'+${cus.id}}">Update</a></td>
+                        </tr>
+                    </tobody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

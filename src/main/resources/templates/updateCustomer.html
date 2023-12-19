@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html th:replace="layout/masterLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Customer Form</h3>
+          </div>
+          <div class="card-body">
+            <form th:object="${customer}" th:action="@{/update/customer}"  method="post">
+
+              <div class="mb-3">
+                <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                <input id="dateOfBirth" type="date"
+                       th:field="*{dateOfBirth}"
+                       th:classappend="${#fields.hasErrors('dateOfBirth')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{dateOfBirth}"
+                       th:if="${#fields.hasErrors('dateOfBirth')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="cashierName" class="form-label">CashierName</label>
+                <input id="cashierName" type="text"
+                       th:field="*{cashierName}"
+                       th:classappend="${#fields.hasErrors('cashierName')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{cashierName}"
+                       th:if="${#fields.hasErrors('cashierName')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="orderNo" class="form-label">OrderNo</label>
+                <input id="orderNo" type="text"
+                       th:field="*{orderNo}"
+                       th:classappend="${#fields.hasErrors('orderNo')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{orderNo}"
+                       th:if="${#fields.hasErrors('orderNo')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="QTy" class="form-label">QTy</label>
+                <input id="QTy" type="text"
+                       th:field="*{QTy}"
+                       th:classappend="${#fields.hasErrors('QTy')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{QTy}"
+                       th:if="${#fields.hasErrors('QTy')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="itemName" class="form-label">ItemName</label>
+                <input id="itemName" type="text"
+                       th:field="*{itemName}"
+                       th:classappend="${#fields.hasErrors('itemName')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{itemName}"
+                       th:if="${#fields.hasErrors('itemName')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="rate" class="form-label">Rate</label>
+                <input id="rate" type="text"
+                       th:field="*{rate}"
+                       th:classappend="${#fields.hasErrors('rate')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{rate}"
+                       th:if="${#fields.hasErrors('rate')}"></small>
+              </div>
+              <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input id="amount" type="text"
+                       th:field="*{amount}"
+                       th:classappend="${#fields.hasErrors('amount')} ? 'is-invalid'"
+                       class="form-control">
+                <small class="invalid-feedback"
+                       th:errors="*{amount}"
+                       th:if="${#fields.hasErrors('amount')}"></small>
+              </div>
+
+              <input type="submit" value="Update Customer" class="btn btn-primary w-100">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
